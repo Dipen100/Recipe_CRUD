@@ -1,0 +1,21 @@
+{% extends "recipe_actions/main.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1>
+                    {% if form.instance.pk %}Update Recipe{% else %}Create Recipe{% endif %}
+                </h1>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

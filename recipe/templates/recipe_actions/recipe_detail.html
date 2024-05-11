@@ -1,0 +1,29 @@
+{% extends "recipe_actions/main.html" %}
+
+{% block title %}{{recipe.name}}{% endblock title %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">  
+              <div class="card m-2">
+                    <div class="card-header">                       
+                        <h1>{{ recipe.pk}}. {{ recipe.name }}</h1>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Category:</strong> {{ recipe.category }}</p>
+                        <p><strong>Description:</strong> {{ recipe.description }}</p>
+                        <p><strong>Process:</strong> {{ recipe.process }}</p>
+                        <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                        <p><strong>Recipe Type:</strong> {{ recipe.recipe_type }}</p>
+                        <img src="{{ recipe.picture.url }}" alt="{{ recipe.name }}" style="max-width: 300px;">
+                    </div>                
+                    <div class="card-footer">
+                        <a href="{% url 'recipe_list' %}" class="btn btn-primary">Back</a>
+                        <a href="{% url 'recipe_update' recipe.id %}" class="btn btn-success">Edit</a>            
+                        <a href="{% url 'recipe_delete' recipe.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+              </div>
+        </div>
+    </div>
+{% endblock body %}
