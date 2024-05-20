@@ -139,3 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'recipe', 'recipe_images')
 
 # Define the URL prefix for media files
 MEDIA_URL = '/media/'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'login'

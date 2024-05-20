@@ -3,6 +3,17 @@
 {% block title %}Confirm Delete{% endblock title %}
 
 {% block body %}
+<div class="container mt-4">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endfor %}
+</div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -10,21 +21,21 @@
             <p>Are you sure you want to delete "{{ recipe.name }}"?</p>
             <div class="card m-2">
                 <div class="card-header">                    
-                    <p class="text-center">Recipe ID: {{recipe.pk}}</p>
+                    <p class="text-center"><strong>Recipe ID: {{recipe.pk}}</strong></p>
                 </div>
                 <div class="card-body">
                     <p><strong>Recipe Name:</strong> {{ recipe.name }}</p>
                     <p><strong>Category:</strong> {{ recipe.category }}</p>
                     <p><strong>Description:</strong> {{ recipe.description }}</p>
-                    <img src="{{recipe.picture.url}}" alt="{{recipe.name}}" style="max-width: 300px;">
+                    <img src="{{recipe.picture.url}}" alt="{{recipe.name}}"  style="width: 310px; height: 300px">
                 </div>
                 <div class="card-footer">
-                    <div class="text-center">   
-                        <form method="post">           
-                            {% csrf_token %}         
-                                                             
-                            <a href="{% url 'recipe_detail' recipe.pk %}"><button type="submit" class="btn btn-primary">Cancel</button></a>
-                            <a href="{% url 'recipe_delete' recipe.pk %}"><button type="submit" class="btn btn-danger">Delete</button></a>
+                    <div class="text-center">  
+                        <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-primary">Cancel</a>
+            
+                        <form action="{% url 'recipe_delete' recipe.pk %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </div>
                 </div>

@@ -1,26 +1,5 @@
-{% extends "recipe_actions/main.html" %}
+{% extends "recipe_types/base.html" %}
 
-{% block title %} breskfast {% endblock title %}
+{% block title %}breakfast{% endblock title %}
 
-{% block body %}
-    <h1>Breakfast Recipes</h1>
-    <div class="row">
-        {% for recipe in recipes %}
-            {% if forloop.counter0|divisibleby:3 %}
-                </div><div class="row">
-            {% endif %}
-            <div class="col-sm-4">
-                <div class="card m-2">
-                    <p class='text-center'>Recipe ID: {{ recipe.id }}</p>
-                    <img src="{{ recipe.picture.url }}" alt="" class="card-img-top" height="300px">
-                    <div class="card-footer">
-                        <div class="text-center">                            
-                            <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-success">View Details</a>
-                            <a href="{% url 'recipe_delete' recipe.pk %}" class="btn btn-danger">Delete</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-{% endblock body %}
+{% block heading %}Breakfast Recipes{% endblock heading %}
