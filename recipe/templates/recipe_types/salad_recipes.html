@@ -3,28 +3,3 @@
 {% block title %}salads{% endblock title %}
 
 {% block heading %}Salad Recipes{% endblock heading %}
-
-{% comment %} {% extends "recipe_actions/main.html" %}
-
-{% block title %} salad {% endblock title %}
-
-{% block body %}
-<div class="container">    
-        <h2>Salad Recipes</h2>
-        {% for recipe in recipes %}
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{ recipe.picture.url }}" class="img-fluid rounded-start" alt="{{ recipe.name }}" style="max-height: 200px;">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title text-center"><a href="{% url "recipe_detail" recipe.pk %}">{{recipe.name}}</a></h5>
-                            <p class="card-text">{{recipe.description}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-</div>
-{% endblock body%} {% endcomment %}

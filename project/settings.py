@@ -131,7 +131,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = 'static/'
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Define the path to the directory where uploaded files are stored
@@ -139,7 +138,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'recipe', 'recipe_images')
 
 # Define the URL prefix for media files
 MEDIA_URL = '/media/'
-
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'login'

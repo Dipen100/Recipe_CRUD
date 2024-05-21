@@ -9,7 +9,8 @@ class Recipe(models.Model):
     SNACK ='Snack'
     DRINK = 'Drink'
     SOUP = 'Soup'
-    VEGETERIAN = 'Vegeterian'
+    CHICKEN = 'Chicken'
+    VEGETARIAN = 'Vegetarian'
     
     RECIPE_TYPES = [
         (BREAKFAST, 'Breakfast'),
@@ -19,7 +20,8 @@ class Recipe(models.Model):
         (SNACK, 'Snack'),
         (DRINK, 'Drink'),
         (SOUP, 'Soup'),
-        (VEGETERIAN, 'Vegeterian'),
+        (CHICKEN, 'Chicken'),
+        (VEGETARIAN, 'Vegetarian'),
     ]
 
     name = models.CharField(max_length=100)

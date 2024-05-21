@@ -18,9 +18,11 @@ CATEGORY_URL_MAP = {
     'Snack': 'snack',
     'Drink': 'drink',
     'Soup': 'soup',
+    'Chicken': 'chicken',
     'Vegetarian': 'vegetarian',
 }
 
+@login_required(login_url='login')
 def frontpage(request):
     return render(request, 'recipe_types/frontpage.html')
     
@@ -55,7 +57,7 @@ def recipe_create(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            recipe = form.save()
             messages.success(request, "Recipe created successfully!")
             return redirect('recipe_list')
     else:
@@ -104,7 +106,7 @@ def add_recipe(request):
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('frontpage')
     else:
         form = RecipeForm()
     return render(request, 'recipe_actions/recipe_form.html', {'form': form})
@@ -137,9 +139,13 @@ def soup(request):
     soup_recipes = Recipe.objects.filter(recipe_type='Soup')
     return render(request, 'recipe_types/soup_recipes.html', {'recipes': soup_recipes})
 
-def vegeterian(request):
-    vegeterian_recipes = Recipe.objects.filter(recipe_type='Vegeterian')
-    return render(request, 'recipe_types/vegeterian_dishes.html', {'recipes': vegeterian_recipes})
+def chicken(request):
+    chicken_recipes = Recipe.objects.filter(recipe_type='chicken')
+    return render(request, 'recipe_types/chicken_recipes.html', {'recipes': chicken_recipes})
+
+def vegetarian(request):
+    vegetarian_recipes = Recipe.objects.filter(recipe_type='Vegetarian')
+    return render(request, 'recipe_types/vegetarian_dishes.html', {'recipes': vegetarian_recipes})
 
 def LoginPage(request):
     if request.method == 'POST':
@@ -151,9 +157,8 @@ def LoginPage(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, "Login successful.")
-                return redirect('/')
-            else:
-                messages.error(request, "Invalid username or password.")
+                return redirect('frontpage')
+    
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
