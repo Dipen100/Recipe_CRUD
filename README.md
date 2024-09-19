@@ -41,6 +41,11 @@ source .venv/bin/activate
 python3 manage.py runserver
 ```
 ### 🎨 Screenshots
+<div style="display: flex; justify-content: space-around;">
+  <img src="screenshots/login.png" alt="login page" height='300' width="300"/>
+  <img src="screenshots/register.png" alt="register page" height='300' width="300"/>
+  <img src="screenshots/sample.png" alt="sample of site" height='300' width="300"/>
+</div>
 
 ### 🤝 Contributing
 you are welcome to contributions! Here's how you can contribute:
