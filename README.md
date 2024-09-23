@@ -42,11 +42,11 @@ python3 manage.py runserver
 ```
 ### 🎨 Screenshots
 <div style="display: flex; justify-content: space-around;">
-  <img src="screenshots/login.png" alt="login page" height='300' width="300"/>
-  <img src="screenshots/register.png" alt="register page" height='300' width="300"/>
-  <img src="screenshots/sample.png" alt="sample of site" height='300' width="300"/>
-  <img src="screenshots/breakfast1.png" alt="breakfast view sample" height='300' width="300"/>
-  <img src="screenshots/breakfast2.png" alt="breakfast delete" height='300' width="300"/>
+  <img src="screenshots/login.png" alt="login page" height='300' width="400"/>
+  <img src="screenshots/register.png" alt="register page" height='300' width="400"/>
+  <img src="screenshots/sample.png" alt="sample of site" height='300' width="266.6"/>
+  <img src="screenshots/breakfast1.png" alt="breakfast view sample" height='300' width="266.6"/>
+  <img src="screenshots/breakfast2.png" alt="breakfast delete" height='300' width="266.6"/>
   <img src="screenshots/allrecipeslist.png" alt="sample of site" height='400' width="800"/>
 </div>
 
